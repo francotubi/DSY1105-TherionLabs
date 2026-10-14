@@ -9,10 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HistoryScreen() {
+fun HistoryScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -98,5 +100,5 @@ fun HistoryScreen() {
 @Preview(showBackground = true)
 @Composable
 fun HistoryScreenPreview() {
-    HistoryScreen()
+    HistoryScreen(navController = rememberNavController())
 }

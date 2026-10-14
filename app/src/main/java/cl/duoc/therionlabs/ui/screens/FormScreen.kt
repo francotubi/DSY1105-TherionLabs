@@ -7,23 +7,37 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FormScreen() {
+fun FormScreen(navController: NavHostController) {
+
+    // Datos personales
+    var rutProspecto by remember { mutableStateOf("")}
     var nombre by remember { mutableStateOf("") }
+    var apellidos by remember { mutableStateOf("")}
+    var establecimiento by remember {mutableStateOf("")}
+    var fechaNacimiento by remember { mutableStateOf("") }
+    var celular by remember { mutableStateOf("") }
+
+    // Datos de actividad u enseñanzas
+    var comunaResidencia by remember { mutableStateOf("") }
+    var comunaEstablecimiento by remember { mutableStateOf("") }
+
+    var expandedActividad by remember { mutableStateOf(false) }
+    val actividadActual = listOf("4to Medio", "Egresado enseñanza media", "Otra")
+    var actividadSeleccionada by remember {mutableStateOf(actividadActual[0])}
+
     var email by remember { mutableStateOf("") }
-    var telefono by remember { mutableStateOf("") }
-    var observacion by remember { mutableStateOf("") }
 
-    var expandedCurso by remember { mutableStateOf(false) }
-    val cursos = listOf("Cloud Computing con AWS", "Microservicios en Spring Boot", "Ciberseguridad Defensiva", "Bases de Datos Oracle")
-    var selectedCurso by remember { mutableStateOf(cursos[0]) }
-
-    val modalidades = listOf("Online", "Presencial")
-    var selectedModalidad by remember { mutableStateOf(modalidades[0]) }
+    val jornadas = listOf("Diurna", "Vespertina")
+    var selectedJornada by remember { mutableStateOf(jornadas[0]) }
 
     Scaffold(
         topBar = {
@@ -51,14 +65,85 @@ fun FormScreen() {
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(14.dp)
-        ) {
+        )
+            {
+
+            Text(
+                text = "Datos personales",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = 6.dp)
+                )
+
             OutlinedTextField(
-                value = nombre,
-                onValueChange = { nombre = it },
-                label = { Text("Nombre Completo *") },
+                value = rutProspecto,
+                onValueChange = {rutProspecto = it },
+                label = { Text("Ingresa tu rut *")},
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
+            OutlinedTextField(
+                value = nombre,
+                onValueChange = { nombre = it },
+                label = { Text("Nombre *") },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true
+            )
+                OutlinedTextField(
+                    value = apellidos,
+                    onValueChange = { apellidos = it },
+                    label = { Text("Apellidos *") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+
+                OutlinedTextField(
+                    value = fechaNacimiento,
+                    onValueChange = { fechaNacimiento = it },
+                    label = { Text("Fecha nacimiento *") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+
+                OutlinedTextField(
+                    value = celular,
+                    onValueChange = { celular = it },
+                    label = { Text("Celular *") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+
+                Text(
+                    text = "Datos Establecimiento",
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 6.dp)
+                )
+
+                OutlinedTextField(
+                    value = establecimiento,
+                    onValueChange = { establecimiento = it },
+                    label = { Text("Establecimiento: *") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+
+                OutlinedTextField(
+                    value = comunaResidencia,
+                    onValueChange = { comunaResidencia = it },
+                    label = { Text("Comuna de residencia *") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+
+                OutlinedTextField(
+                    value = comunaEstablecimiento,
+                    onValueChange = { comunaEstablecimiento = it },
+                    label = { Text("Comuna de su establecimiento *") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+
 
             val isEmailValid = email.isEmpty() || email.contains("@")
             OutlinedTextField(
@@ -76,68 +161,52 @@ fun FormScreen() {
                 singleLine = true
             )
 
-            OutlinedTextField(
-                value = telefono,
-                onValueChange = { telefono = it },
-                label = { Text("Teléfono de Contacto (+569...) *") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
-            )
-
             ExposedDropdownMenuBox(
-                expanded = expandedCurso,
-                onExpandedChange = { expandedCurso = !expandedCurso }
+                expanded = expandedActividad,
+                onExpandedChange = { expandedActividad = !expandedActividad }
             ) {
                 OutlinedTextField(
-                    value = selectedCurso,
+                    value = actividadSeleccionada,
                     onValueChange = {},
                     readOnly = true,
-                    label = { Text("Programa o Especialización") },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedCurso) },
+                    label = { Text("Actividad actual") },
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedActividad) },
                     modifier = Modifier.menuAnchor().fillMaxWidth()
                 )
                 ExposedDropdownMenu(
-                    expanded = expandedCurso,
-                    onDismissRequest = { expandedCurso = false }
+                    expanded = expandedActividad,
+                    onDismissRequest = { expandedActividad = false }
                 ) {
-                    cursos.forEach { curso ->
+                    actividadActual.forEach { actividadActual ->
                         DropdownMenuItem(
-                            text = { Text(curso) },
+                            text = { Text(actividadActual) },
                             onClick = {
-                                selectedCurso = curso
-                                expandedCurso = false
+                                actividadSeleccionada = actividadActual
+                                expandedActividad = false
                             }
                         )
                     }
                 }
             }
 
-            Text("Modalidad Preferida", style = MaterialTheme.typography.titleSmall)
+            Text("Jornada de estudio preferida", style = MaterialTheme.typography.titleSmall)
             Row(verticalAlignment = Alignment.CenterVertically) {
-                modalidades.forEach { modalidad ->
+                jornadas.forEach { jornadas ->
                     RadioButton(
-                        selected = (modalidad == selectedModalidad),
-                        onClick = { selectedModalidad = modalidad }
+                        selected = (jornadas == selectedJornada),
+                        onClick = { selectedJornada = jornadas }
                     )
-                    Text(text = modalidad, modifier = Modifier.padding(end = 16.dp))
+                    Text(text = jornadas, modifier = Modifier.padding(end = 16.dp))
                 }
             }
 
-            OutlinedTextField(
-                value = observacion,
-                onValueChange = { observacion = it },
-                label = { Text("Observaciones adicionales") },
-                modifier = Modifier.fillMaxWidth(),
-                maxLines = 3
-            )
-
             Button(
-                onClick = { /* Pendiente Room */ },
+                onClick = { navController.navigate("selector_sede") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp)
             ) {
-                Text("Guardar Prospecto")
+                Text("SIGUIENTE")
             }
         }
     }
@@ -146,5 +215,5 @@ fun FormScreen() {
 @Preview(showBackground = true)
 @Composable
 fun FormScreenPreview() {
-    FormScreen()
+    FormScreen(navController = rememberNavController())
 }
