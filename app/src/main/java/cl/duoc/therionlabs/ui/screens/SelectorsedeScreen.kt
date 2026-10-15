@@ -13,7 +13,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -49,14 +49,27 @@ fun SelectorSedeScreen(navController: NavController) {
     var regionSeleccionada by remember { mutableStateOf("") }
 
     // Valores seleccion de sede
-    var expandedSede by remember { mutableStateOf(false)}
-    var sedeSeleccionada by remember {mutableStateOf("")}
+    var expandedSede by remember { mutableStateOf(false) }
+    var sedeSeleccionada by remember { mutableStateOf("") }
 
     val datosSedes = remember {
         mapOf(
-            "Región Metropolitana" to listOf("Sede Alameda (Santiago centro)", "Antonio Varas (Providencia)","Maipú","Melipilla","Padre Alonso de Ovalle (Stgo centro)","Plaza Norte","Plaza Oeste (Cerrillos)","Plaza Vespucio","Puente Alto","San Bernardo","San Carlos de Apoquindo (Las Condes)","San Joaquin"),
-            "Región de Valparaiso" to listOf("Valparaiso","Viña del Mar"),
-            "Región del Biobío" to listOf("Concepción","Campus Arauco","Campus Nacimiento"),
+            "Región Metropolitana" to listOf(
+                "Sede Alameda (Santiago centro)",
+                "Antonio Varas (Providencia)",
+                "Maipú",
+                "Melipilla",
+                "Padre Alonso de Ovalle (Stgo centro)",
+                "Plaza Norte",
+                "Plaza Oeste (Cerrillos)",
+                "Plaza Vespucio",
+                "Puente Alto",
+                "San Bernardo",
+                "San Carlos de Apoquindo (Las Condes)",
+                "San Joaquin"
+            ),
+            "Región de Valparaiso" to listOf("Valparaiso", "Viña del Mar"),
+            "Región del Biobío" to listOf("Concepción", "Campus Arauco", "Campus Nacimiento"),
             "Región de la Araucania" to listOf("Campus Villarica"),
             "Región de los Lagos" to listOf("Puerto Montt")
         )
@@ -77,16 +90,30 @@ fun SelectorSedeScreen(navController: NavController) {
     val carrerasSeleccionadas = remember { mutableStateListOf<String>() }
 
     var menuExpandido by remember { mutableStateOf(false) }
-    var carreraSeleccionadaEnMenu by remember { mutableStateOf("") }
 
     val datosCarreras = remember {
         mapOf(
-            "Administración y Negocios" to listOf("Auditoría", "Ingeniería en Administración", "Técnico en Gestión Logística"),
-            "Informática y Telecomunicaciones" to listOf("Ingeniería en Informática", "Ingeniería en Ciberseguridad", "Analista Programador"),
-            "Salud y Bienestar" to listOf("Informática Biomédica", "Técnico de Enfermería", "Técnico en Química y Farmacia"),
+            "Administración y Negocios" to listOf(
+                "Auditoría",
+                "Ingeniería en Administración",
+                "Técnico en Gestión Logística"
+            ),
+            "Informática y Telecomunicaciones" to listOf(
+                "Ingeniería en Informática",
+                "Ingeniería en Ciberseguridad",
+                "Analista Programador"
+            ),
+            "Salud y Bienestar" to listOf(
+                "Informática Biomédica",
+                "Técnico de Enfermería",
+                "Técnico en Química y Farmacia"
+            ),
             "Diseño" to listOf("Diseño Gráfico", "Diseño de Vestuario", "Ilustración")
         )
     }
+
+    // Campos nulos manager
+    var mostrarErrores by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -128,6 +155,12 @@ fun SelectorSedeScreen(navController: NavController) {
                     readOnly = true,
                     label = { Text("Selecciona una región") },
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedRegion) },
+                    isError = mostrarErrores && regionSeleccionada.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && regionSeleccionada.isBlank()) {
+                            Text("Debes seleccionar una región")
+                        }
+                    },
                     modifier = Modifier.menuAnchor().fillMaxWidth()
                 )
                 ExposedDropdownMenu(
@@ -139,7 +172,7 @@ fun SelectorSedeScreen(navController: NavController) {
                             text = { Text(text = region) },
                             onClick = {
                                 regionSeleccionada = region
-                                sedeSeleccionada = "" // BUENA PRÁCTICA: Resetea la sede si cambias la región
+                                sedeSeleccionada = ""
                                 expandedRegion = false
                             }
                         )
@@ -150,18 +183,25 @@ fun SelectorSedeScreen(navController: NavController) {
             Text("Selecciona TU SEDE de interés", style = MaterialTheme.typography.titleMedium)
             ExposedDropdownMenuBox(
                 expanded = expandedSede,
-                onExpandedChange = { if(regionSeleccionada.isNotEmpty()) expandedSede = !expandedSede }
+                onExpandedChange = {
+                    if (regionSeleccionada.isNotEmpty()) expandedSede = !expandedSede
+                }
             ) {
                 OutlinedTextField(
                     value = sedeSeleccionada,
                     onValueChange = {},
                     readOnly = true,
                     enabled = regionSeleccionada.isNotEmpty(),
-                    label = {
-                        val textoEtiqueta = if (regionSeleccionada.isEmpty()) "Selecciona una sede" else "Sede"
-                        Text(textoEtiqueta)
+                    label = { Text("Selecciona una sede *") },
+                    trailingIcon = {
+                        ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedSede)
                     },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedSede) },
+                    isError = mostrarErrores && sedeSeleccionada.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && sedeSeleccionada.isBlank()) {
+                            Text("Debes seleccionar una sede")
+                        }
+                    },
                     modifier = Modifier.menuAnchor().fillMaxWidth()
                 )
                 ExposedDropdownMenu(
@@ -170,7 +210,7 @@ fun SelectorSedeScreen(navController: NavController) {
                 ) {
                     sedesFiltradas.forEach { sede ->
                         DropdownMenuItem(
-                            text = { Text(text = sede) },
+                            text = { Text(sede) },
                             onClick = {
                                 sedeSeleccionada = sede
                                 expandedSede = false
@@ -181,7 +221,7 @@ fun SelectorSedeScreen(navController: NavController) {
             }
 
             Text(
-                text = "Marca tu nivel de interés por estudiar en DUOC UC",
+                "Marca tu nivel de interés por estudiar en DUOC UC",
                 style = MaterialTheme.typography.titleMedium
             )
             Row(
@@ -194,7 +234,7 @@ fun SelectorSedeScreen(navController: NavController) {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         RadioButton(
-                            selected = (interesItem == selectedInteres),
+                            selected = interesItem == selectedInteres,
                             onClick = { selectedInteres = interesItem }
                         )
                         Text(
@@ -207,88 +247,98 @@ fun SelectorSedeScreen(navController: NavController) {
             }
 
             Text(
-                text = "Busca y agrega una carrera:",
+                "Busca y agrega una carrera:",
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
-
-                ExposedDropdownMenuBox(
+            ExposedDropdownMenuBox(
+                expanded = menuExpandido,
+                onExpandedChange = { menuExpandido = !menuExpandido }
+            ) {
+                OutlinedTextField(
+                    value = carrerasSeleccionadas.joinToString(", "),
+                    onValueChange = {},
+                    readOnly = true,
+                    label = { Text("Selecciona una carrera *") },
+                    trailingIcon = {
+                        ExposedDropdownMenuDefaults.TrailingIcon(expanded = menuExpandido)
+                    },
+                    isError = mostrarErrores && carrerasSeleccionadas.isEmpty(),
+                    supportingText = {
+                        if (mostrarErrores && carrerasSeleccionadas.isEmpty()) {
+                            Text("Debes seleccionar al menos una carrera")
+                        }
+                    },
+                    modifier = Modifier.menuAnchor().fillMaxWidth()
+                )
+                ExposedDropdownMenu(
                     expanded = menuExpandido,
-                    onExpandedChange = { menuExpandido = !menuExpandido }
+                    onDismissRequest = { menuExpandido = false }
                 ) {
-                    OutlinedTextField(
-                        value = carreraSeleccionadaEnMenu,
-                        onValueChange = {},
-                        readOnly = true,
-                        label = { Text("Selecciona una carrera") },
-                        trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = menuExpandido) },
-                        modifier = Modifier.menuAnchor().fillMaxWidth()
-                    )
-
-                    ExposedDropdownMenu(
-                        expanded = menuExpandido,
-                        onDismissRequest = { menuExpandido = false }
-                    ) {
-                        datosCarreras.forEach { (escuela, listaDeCarreras) ->
-
-                            DropdownMenuItem(
-                                text = { Text(escuela.uppercase(), fontSize = 11.sp, fontWeight = FontWeight.Bold, color = Color.Gray) },
-                                onClick = {},
-                                enabled = false
-                            )
-
-                            listaDeCarreras.forEach { carrera ->
-                                val yaSeleccionada = carrerasSeleccionadas.contains(carrera)
-
-                                DropdownMenuItem(
-                                    text = {
-                                        Text(
-                                            text = if (yaSeleccionada) "✓ $carrera" else "   $carrera",
-                                            color = if (yaSeleccionada) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
-                                        )
-                                    },
-                                    onClick = {
-                                        if (!yaSeleccionada && carrerasSeleccionadas.size < 3) {
-                                            carrerasSeleccionadas.add(carrera)
-                                        } else if (yaSeleccionada) {
-                                            carrerasSeleccionadas.remove(carrera)
-                                        }
-                                        menuExpandido = false
-                                    }
+                    datosCarreras.forEach { (escuela, listaDeCarreras) ->
+                        DropdownMenuItem(
+                            text = {
+                                Text(
+                                    escuela.uppercase(),
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Gray
                                 )
-                            }
+                            },
+                            onClick = {},
+                            enabled = false
+                        )
+                        listaDeCarreras.forEach { carrera ->
+                            val yaSeleccionada = carrerasSeleccionadas.contains(carrera)
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        if (yaSeleccionada) "✓ $carrera" else "   $carrera",
+                                        color = if (yaSeleccionada)
+                                            MaterialTheme.colorScheme.primary
+                                        else MaterialTheme.colorScheme.onSurface
+                                    )
+                                },
+                                onClick = {
+                                    if (yaSeleccionada) {
+                                        carrerasSeleccionadas.remove(carrera)
+                                    } else if (carrerasSeleccionadas.size < 3) {
+                                        carrerasSeleccionadas.add(carrera)
+                                    }
+                                    menuExpandido = false
+                                }
+                            )
                         }
                     }
                 }
+            }
 
-            //Panel prioridad
-            Text(
-                text = "Mis Preferencias (Máximo 3):",
-                fontSize = 16.sp
-            )
-
+            Text("Mis Preferencias (Máximo 3):", fontSize = 16.sp)
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 for (i in 0..2) {
                     val carrera = carrerasSeleccionadas.getOrNull(i)
-
                     Card(
                         colors = CardDefaults.cardColors(
-                            containerColor = if (carrera != null) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant
+                            containerColor = if (carrera != null)
+                                MaterialTheme.colorScheme.primaryContainer
+                            else MaterialTheme.colorScheme.surfaceVariant
                         ),
-                        modifier = Modifier
-                            .weight(1f)
-                            .heightIn(min = 80.dp)
+                        modifier = Modifier.weight(1f).heightIn(min = 80.dp)
                     ) {
                         Column(
-                            modifier = Modifier.fillMaxSize().padding(6.dp),
+                            modifier = Modifier.fillMaxWidth().padding(6.dp),
                             verticalArrangement = Arrangement.Center
                         ) {
-                            Text("${i + 1}° Opción", fontSize = 11.sp, fontWeight = FontWeight.Bold)
                             Text(
-                                text = carrera ?: "Vacío",
+                                "${i + 1}° Opción",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                carrera ?: "Vacío",
                                 fontSize = 12.sp,
                                 maxLines = 2
                             )
@@ -297,24 +347,30 @@ fun SelectorSedeScreen(navController: NavController) {
                 }
             }
 
-            // Botón para limpiar la lista
             if (carrerasSeleccionadas.isNotEmpty()) {
                 TextButton(onClick = { carrerasSeleccionadas.clear() }) {
                     Text("Limpiar selección")
                 }
             }
 
-            Divider(modifier = Modifier.padding(vertical = 8.dp))
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
             Button(
-                onClick = { /* Pendiente Room */ },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
+                onClick = {
+                    mostrarErrores = true
+                    val regionValida = regionSeleccionada.isNotBlank()
+                    val sedeValida = sedeSeleccionada.isNotBlank()
+                    val carrerasValidas = carrerasSeleccionadas.size in 1..3
+                    val interesValido = selectedInteres.isNotBlank()
+
+                    if (regionValida && sedeValida && carrerasValidas && interesValido) {
+                        // Aquí irá la implementación del guardado en Room.
+                    }
+                },
+                modifier = Modifier.fillMaxWidth().height(50.dp)
             ) {
                 Text("Guardar Prospecto")
             }
-            }
         }
     }
-
+}

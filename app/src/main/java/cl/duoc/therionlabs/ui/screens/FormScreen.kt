@@ -39,6 +39,9 @@ fun FormScreen(navController: NavHostController) {
     val jornadas = listOf("Diurna", "Vespertina")
     var selectedJornada by remember { mutableStateOf(jornadas[0]) }
 
+    // Control de errores
+    var mostrarErrores by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -80,21 +83,39 @@ fun FormScreen(navController: NavHostController) {
                 onValueChange = {rutProspecto = it },
                 label = { Text("Ingresa tu rut *")},
                 modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+                singleLine = true,
+                isError = mostrarErrores && rutProspecto.isBlank(),
+                supportingText = {
+                    if (mostrarErrores && rutProspecto.isBlank()) {
+                        Text("Este campo es obligatorio")
+                    }
+                }
             )
             OutlinedTextField(
                 value = nombre,
                 onValueChange = { nombre = it },
                 label = { Text("Nombre *") },
                 modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+                singleLine = true,
+                isError = mostrarErrores && nombre.isBlank(),
+                supportingText = {
+                    if (mostrarErrores && nombre.isBlank()) {
+                        Text("Este campo es obligatorio")
+                    }
+                }
             )
                 OutlinedTextField(
                     value = apellidos,
                     onValueChange = { apellidos = it },
                     label = { Text("Apellidos *") },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
+                    singleLine = true,
+                    isError = mostrarErrores && apellidos.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && apellidos.isBlank()) {
+                            Text("Este campo es obligatorio")
+                        }
+                    }
                 )
 
                 OutlinedTextField(
@@ -102,7 +123,13 @@ fun FormScreen(navController: NavHostController) {
                     onValueChange = { fechaNacimiento = it },
                     label = { Text("Fecha nacimiento *") },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
+                    singleLine = true,
+                    isError = mostrarErrores && fechaNacimiento.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && fechaNacimiento.isBlank()) {
+                            Text("Este campo es obligatorio")
+                        }
+                    }
                 )
 
                 OutlinedTextField(
@@ -110,7 +137,14 @@ fun FormScreen(navController: NavHostController) {
                     onValueChange = { celular = it },
                     label = { Text("Celular *") },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
+                    singleLine = true,
+                    isError = mostrarErrores && celular.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && celular.isBlank()) {
+                            Text("Este campo es obligatorio")
+                        }
+                    }
+
                 )
 
                 Text(
@@ -125,7 +159,13 @@ fun FormScreen(navController: NavHostController) {
                     onValueChange = { establecimiento = it },
                     label = { Text("Establecimiento: *") },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
+                    singleLine = true,
+                    isError = mostrarErrores && establecimiento.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && establecimiento.isBlank()) {
+                            Text("Este campo es obligatorio")
+                        }
+                    }
                 )
 
                 OutlinedTextField(
@@ -133,7 +173,13 @@ fun FormScreen(navController: NavHostController) {
                     onValueChange = { comunaResidencia = it },
                     label = { Text("Comuna de residencia *") },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
+                    singleLine = true,
+                    isError = mostrarErrores && comunaResidencia.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && comunaResidencia.isBlank()) {
+                            Text("Este campo es obligatorio")
+                        }
+                    }
                 )
 
                 OutlinedTextField(
@@ -141,25 +187,35 @@ fun FormScreen(navController: NavHostController) {
                     onValueChange = { comunaEstablecimiento = it },
                     label = { Text("Comuna de su establecimiento *") },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
+                    singleLine = true,
+                    isError = mostrarErrores && comunaEstablecimiento.isBlank(),
+                    supportingText = {
+                        if (mostrarErrores && comunaEstablecimiento.isBlank()) {
+                            Text("Este campo es obligatorio")
+                        }
+                    }
                 )
 
+                val isEmailValid = android.util.Patterns.EMAIL_ADDRESS
+                    .matcher(email)
+                    .matches()
 
-            val isEmailValid = email.isEmpty() || email.contains("@")
-            OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("Correo Electrónico *") },
-                isError = !isEmailValid,
-                supportingText = {
-                    if (!isEmailValid) Text("Formato de correo no válido")
-                },
-                trailingIcon = {
-                    if (!isEmailValid) Text("!", color = MaterialTheme.colorScheme.error)
-                },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
-            )
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text("Correo Electrónico *") },
+                    isError = (mostrarErrores || email.isNotBlank()) &&
+                            !isEmailValid,
+                    supportingText = {
+                        if (mostrarErrores && email.isBlank()) {
+                            Text("Este campo es obligatorio")
+                        } else if (email.isNotBlank() && !isEmailValid) {
+                            Text("Formato de correo no válido")
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
 
             ExposedDropdownMenuBox(
                 expanded = expandedActividad,
@@ -200,15 +256,38 @@ fun FormScreen(navController: NavHostController) {
                 }
             }
 
-            Button(
-                onClick = { navController.navigate("selector_sede") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-            ) {
-                Text("SIGUIENTE")
+                Button(
+                    onClick = {
+                        mostrarErrores = true
+
+                        val camposCompletos = listOf(
+                            rutProspecto,
+                            nombre,
+                            apellidos,
+                            fechaNacimiento,
+                            celular,
+                            establecimiento,
+                            comunaResidencia,
+                            comunaEstablecimiento,
+                            email
+                        ).all { it.isNotBlank() }
+
+                        val correoValido = android.util.Patterns.EMAIL_ADDRESS
+                            .matcher(email)
+                            .matches()
+
+                        if (camposCompletos && correoValido) {
+                            navController.navigate("selector_sede")
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(50.dp)
+                ) {
+                    Text("SIGUIENTE")
+                }
+
             }
-        }
     }
 }
 
