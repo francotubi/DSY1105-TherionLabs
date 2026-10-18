@@ -1,0 +1,421 @@
+{
+  "fechaConsulta": "2026-10-18",
+  "fuentes": [
+    "https://www.duoc.cl/escuela/administracion-negocios/",
+    "https://www.duoc.cl/escuela/comunicacion/",
+    "https://www.duoc.cl/escuela/construccion/",
+    "https://www.duoc.cl/escuela/diseno/",
+    "https://www.duoc.cl/escuela/gastronomia/",
+    "https://www.duoc.cl/escuela/informatica-telecomunicaciones/oferta-academica/",
+    "https://www.duoc.cl/escuela/ingenieria-recursos-naturales/",
+    "https://www.duoc.cl/escuela/salud/",
+    "https://www.duoc.cl/escuela/turismo/"
+  ],
+  "carreras": [
+    {
+      "nombre": "Administración Pública",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/administracion-publica-2/"
+    },
+    {
+      "nombre": "Administración de Empresas",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/administracion-de-empresas/"
+    },
+    {
+      "nombre": "Auditoría",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/auditoria-2/"
+    },
+    {
+      "nombre": "Auditoría y Análisis de Negocios",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/auditoria-y-analisis-de-negocios/"
+    },
+    {
+      "nombre": "Comercio Exterior",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/comercio-exterior-2/"
+    },
+    {
+      "nombre": "Contabilidad General Mención Legislación Tributaria",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/contabilidad-general-mencion-legislacion-tributaria/"
+    },
+    {
+      "nombre": "Contabilidad Tributaria",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/contabilidad-tributaria-5/"
+    },
+    {
+      "nombre": "Ingeniería en Administración Mención Finanzas",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-administracion-mencion-finanzas-2/"
+    },
+    {
+      "nombre": "Ingeniería en Administración Mención Gestión de Personas",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-administracion-mencion-gestion-de-personas-2/"
+    },
+    {
+      "nombre": "Ingeniería en Administración Mención Innovación y Emprendimiento",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-administracion-mencion-innovacion-y-emprendimiento-3/"
+    },
+    {
+      "nombre": "Ingeniería en Comercio Exterior",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-comercio-exterior/"
+    },
+    {
+      "nombre": "Ingeniería en Control de Gestión",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-control-gestion/"
+    },
+    {
+      "nombre": "Ingeniería en Gestión Logística",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-gestion-logistica-2/"
+    },
+    {
+      "nombre": "Ingeniería en Gestión de Personas",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-gestion-de-personas/"
+    },
+    {
+      "nombre": "Ingeniería en Marketing Digital",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-marketing-digital-2/"
+    },
+    {
+      "nombre": "Técnico en Administración",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-administracion/"
+    },
+    {
+      "nombre": "Técnico en Gestión Logística",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-gestion-logistica/"
+    },
+    {
+      "nombre": "Técnico en Operaciones Logísticas",
+      "escuela": "Administración y Negocios",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-operaciones-logisticas/"
+    },
+    {
+      "nombre": "Animación Digital",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/animacion-digital-2/"
+    },
+    {
+      "nombre": "Comunicación Audiovisual",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/comunicacion-audiovisual-2/"
+    },
+    {
+      "nombre": "Ingeniería en Sonido",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-sonido/"
+    },
+    {
+      "nombre": "Publicidad",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/publicidad-2/"
+    },
+    {
+      "nombre": "Relaciones Públicas y Comunicación Organizacional",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/relaciones-publicas-y-comunicacion-organizacional/"
+    },
+    {
+      "nombre": "Tecnología en Sonido e Iluminación",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/tecnologia-en-sonido-e-iluminacion/"
+    },
+    {
+      "nombre": "Técnico Audiovisual",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/tecnico-audiovisual-2/"
+    },
+    {
+      "nombre": "Técnico en Trabajo Social",
+      "escuela": "Comunicación",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-trabajo-social/"
+    },
+    {
+      "nombre": "Conservación y Restauración del Patrimonio",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/conservacion-restauracion-patrimonio/"
+    },
+    {
+      "nombre": "Ingeniería en Administración de Seguridad Privada",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/ingenieria-administracion-seguridad-privada/"
+    },
+    {
+      "nombre": "Ingeniería en Construcción",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-construccion-2/"
+    },
+    {
+      "nombre": "Ingeniería en Prevención de Riesgos",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-prevencion-de-riesgos/"
+    },
+    {
+      "nombre": "Técnico Modelador Proyectista",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/tecnico-modelador-proyectista/"
+    },
+    {
+      "nombre": "Técnico Topógrafo Geomático",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/tecnico-topografo-geomatico/"
+    },
+    {
+      "nombre": "Técnico en Construcción",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-construccion-2/"
+    },
+    {
+      "nombre": "Técnico en Prevención de Riesgos",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-prevencion-de-riesgos/"
+    },
+    {
+      "nombre": "Técnico en Prevención de Riesgos Laborales",
+      "escuela": "Construcción",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-prevencion-de-riesgos-laborales-2/"
+    },
+    {
+      "nombre": "Desarrollo y Diseño Web",
+      "escuela": "Diseño",
+      "url": "https://www.duoc.cl/carreras/desarrollo-y-diseno-web/"
+    },
+    {
+      "nombre": "Diseño Gráfico",
+      "escuela": "Diseño",
+      "url": "https://www.duoc.cl/carreras/diseno-grafico-3/"
+    },
+    {
+      "nombre": "Diseño Industrial e Innovación en Productos",
+      "escuela": "Diseño",
+      "url": "https://www.duoc.cl/carreras/diseno-industrial-3/"
+    },
+    {
+      "nombre": "Diseño de Ambientes",
+      "escuela": "Diseño",
+      "url": "https://www.duoc.cl/carreras/diseno-de-ambientes/"
+    },
+    {
+      "nombre": "Diseño de Vestuario",
+      "escuela": "Diseño",
+      "url": "https://www.duoc.cl/carreras/diseno-de-vestuario-2/"
+    },
+    {
+      "nombre": "Ilustración para Contextos Globales",
+      "escuela": "Diseño",
+      "url": "https://www.duoc.cl/carreras/ilustracion-para-contextos-globales/"
+    },
+    {
+      "nombre": "Gastronomía",
+      "escuela": "Gastronomía",
+      "url": "https://www.duoc.cl/carreras/gastronomia-2/"
+    },
+    {
+      "nombre": "Gastronomía Internacional",
+      "escuela": "Gastronomía",
+      "url": "https://www.duoc.cl/carreras/gastronomia-internacional-2/"
+    },
+    {
+      "nombre": "Analista Programador",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/analista-programador-2/"
+    },
+    {
+      "nombre": "Analista Programador Computacional",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/analista-programador-computacional/"
+    },
+    {
+      "nombre": "Desarrollo de Aplicaciones",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/desarrollo-de-aplicaciones-5/"
+    },
+    {
+      "nombre": "Ingeniería en Ciberseguridad",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-ciberseguridad/"
+    },
+    {
+      "nombre": "Ingeniería en Ciencia de Datos",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-ciencia-de-datos/"
+    },
+    {
+      "nombre": "Ingeniería en Desarrollo de Software",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-desarrollo-de-software-2/"
+    },
+    {
+      "nombre": "Ingeniería en Informática",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-informatica/"
+    },
+    {
+      "nombre": "Ingeniería en Infraestructura Tecnológica",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-infraestructura-tecnologica/"
+    },
+    {
+      "nombre": "Ingeniería en Redes y Telecomunicaciones",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-redes-y-telecomunicaciones/"
+    },
+    {
+      "nombre": "Técnico de Redes y Telecomunicaciones",
+      "escuela": "Informática y Telecomunicaciones",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-redes-y-telecomunicaciones/"
+    },
+    {
+      "nombre": "Ingeniería Agrícola",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-agricola-4/"
+    },
+    {
+      "nombre": "Ingeniería Industrial",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-industrial/"
+    },
+    {
+      "nombre": "Ingeniería en Automatización y Control Industrial",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-automatizacion-y-control-industrial/"
+    },
+    {
+      "nombre": "Ingeniería en Electricidad y Automatización Industrial",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-electricidad-y-automatizacion-industrial/"
+    },
+    {
+      "nombre": "Ingeniería en Mantenimiento Industrial",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-mantenimiento-industrial-2/"
+    },
+    {
+      "nombre": "Ingeniería en Maquinaria y Vehículos Pesados",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-maquinaria-y-vehiculos-pesados/"
+    },
+    {
+      "nombre": "Ingeniería en Mecánica Automotriz y Autotrónica",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-en-mecanica-automotriz-y-autotronica/"
+    },
+    {
+      "nombre": "Ingeniería en Minas",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-minas/"
+    },
+    {
+      "nombre": "Ingeniería en Recursos Naturales y Sostenibilidad",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/ingenieria-recursos-naturales-sostenibilidad/"
+    },
+    {
+      "nombre": "Técnico Veterinario y Pecuario",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-veterinario-y-pecuario/"
+    },
+    {
+      "nombre": "Técnico en Calidad de Alimentos",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-calidad-de-alimentos-3/"
+    },
+    {
+      "nombre": "Técnico en Control y Monitoreo Remoto de Procesos Mineros",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-control-y-monitoreo-remoto-de-procesos-mineros/"
+    },
+    {
+      "nombre": "Técnico en Desabolladura y Pintura Automotriz",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-desabolladura-pintura-automotriz/"
+    },
+    {
+      "nombre": "Técnico en Electricidad y Automatización Industrial",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-electricidad-y-automatizacion-industrial/"
+    },
+    {
+      "nombre": "Técnico en Electricidad y Energías Renovables",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-electricidad-y-energias-renovables/"
+    },
+    {
+      "nombre": "Técnico en Geología",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-geologia-3/"
+    },
+    {
+      "nombre": "Técnico en Mantenimiento Industrial",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-mantenimiento-industrial/"
+    },
+    {
+      "nombre": "Técnico en Maquinaria y Vehículos Pesados",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-maquinaria-y-vehiculos-pesados/"
+    },
+    {
+      "nombre": "Técnico en Mecánica Automotriz y Autotrónica",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-mecanica-automotriz-y-autotronica-2/"
+    },
+    {
+      "nombre": "Técnico en Operación y Supervisión de Procesos Mineros",
+      "escuela": "Ingeniería y Recursos Naturales",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-operacion-y-supervision-de-procesos-mineros-2"
+    },
+    {
+      "nombre": "Informática Biomédica",
+      "escuela": "Salud y Bienestar",
+      "url": "https://www.duoc.cl/carreras/informatica-biomedica-2/"
+    },
+    {
+      "nombre": "Preparador Físico",
+      "escuela": "Salud y Bienestar",
+      "url": "https://www.duoc.cl/carreras/preparador-fisico-2/"
+    },
+    {
+      "nombre": "Técnico en Enfermería",
+      "escuela": "Salud y Bienestar",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-enfermeria-2/"
+    },
+    {
+      "nombre": "Técnico en Laboratorio Clínico, Banco de Sangre e Imagenología",
+      "escuela": "Salud y Bienestar",
+      "url": "https://www.duoc.cl/carreras/tecnico-laboratorio-clinico-banco-sangre-imagenologia/"
+    },
+    {
+      "nombre": "Técnico en Odontología",
+      "escuela": "Salud y Bienestar",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-odontologia-2/"
+    },
+    {
+      "nombre": "Técnico en Química y Farmacia",
+      "escuela": "Salud y Bienestar",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-quimica-y-farmacia/"
+    },
+    {
+      "nombre": "Administración en Turismo y Hospitalidad",
+      "escuela": "Turismo y Hospitalidad",
+      "url": "https://www.duoc.cl/carreras/administracion-en-turismo-y-hospitalidad-mencion-administracion-hotelera-2/"
+    },
+    {
+      "nombre": "Técnico en Turismo y Hospitalidad",
+      "escuela": "Turismo y Hospitalidad",
+      "url": "https://www.duoc.cl/carreras/tecnico-en-turismo-y-hospitalidad-2/"
+    }
+  ]
+}

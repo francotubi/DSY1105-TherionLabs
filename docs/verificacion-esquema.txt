@@ -1,0 +1,1 @@
+Verificación SQL con SQLite frente al esquema generado por Room: migraciones 1 a 4, 2 a 4 y 3 a 4 correctas. Conserva registros y claves foráneas. Consulta de RUT normalizado por evento comprobada. Esta verificación no sustituye ejecutar las pruebas instrumentadas en Android.
